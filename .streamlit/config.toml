@@ -2,3 +2,8 @@
 base='light'
 backgroundColor='#f1e7e7'
 secondaryBackgroundColor='#D7D8D7'
+
+[server]
+port = $PORT
+enableCORS = false
+headless = true
