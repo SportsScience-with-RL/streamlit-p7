@@ -85,7 +85,7 @@ if selected == 'Client individuel':
     st.title(f'Onglet {selected}')
     st.write("""### Veuillez trouver ci-dessous la prédiction faite pour le client choisi
     Informations jauge :
-        Le seuil de décision est de 0.6, ce dernier nous permet de faire de meilleures prédictions
+        Le seuil de décision est de 0.55, ce dernier nous permet de faire de meilleures prédictions
     """)
 
     client_selection = st.selectbox('Choisir un identifiant client', df['SK_ID_CURR'])
@@ -100,7 +100,7 @@ if selected == 'Client individuel':
     r = requests.post(url='https://fastapip7.herokuapp.com/predict/', json=client_dict)
     proba = round(float(r.json().replace("[", "").replace("]", "")), 2)
     
-    if proba < 0.6:
+    if proba < 0.55:
         st.error('Le prêt est refusé')
     else:
         st.success('Le prêt est accordé')
@@ -113,8 +113,8 @@ if selected == 'Client individuel':
         gauge = {'axis': {'range': [0, 1]},
                 'bar': {'color': 'gainsboro'},
                 'steps' : [
-                    {'range': [0, 0.6], 'color': 'firebrick'},
-                    {'range': [0.6, 1], 'color': 'mediumseagreen'}]}))
+                    {'range': [0, 0.55], 'color': 'firebrick'},
+                    {'range': [0.55, 1], 'color': 'mediumseagreen'}]}))
 
     st.plotly_chart(fig, use_container_width=True)
 
