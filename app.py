@@ -89,7 +89,8 @@ if selected == 'Client individuel':
     """)
 
     client_selection = st.selectbox('Choisir un identifiant client', df['SK_ID_CURR'])
-    
+    with st.expander('Informations clients'):
+        st.dataframe(df[df['SK_ID_CURR']==client_selection])
     st.write('---')
     
     idx_client = df_ml.loc[df_ml['SK_ID_CURR']==client_selection].index[0]
