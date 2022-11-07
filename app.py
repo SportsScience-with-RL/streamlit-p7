@@ -19,7 +19,7 @@ df_ml = pd.read_csv('data_ml_sample.csv')
 #Utilisation de la largeur de la page
 st.set_page_config(layout="wide")
 
-st.sidebar.image('pretadepenser.PNG')
+st.sidebar.image('pretadepenser.png')
 
 #Création d'un menu de navigation entre les pages
 with st.sidebar:
